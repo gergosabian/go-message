@@ -7,3 +7,6 @@ clean:
 
 build-debug: clean
 	CGO_ENABLED=0 go build -gcflags=all="-N -l" -o bin/$(BINARY_NAME)-debug cmd/main.go
+
+build: clean
+	CGO_ENABLED=0 go build -o bin/$(BINARY_NAME) cmd/main.go
