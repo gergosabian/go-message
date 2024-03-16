@@ -1,0 +1,14 @@
+{{ block "chatroom" . }}
+<form id="chat-form" ws-send class="flex">
+    <input type="text" name="content" class="w-3/4 p-2 rounded-l-lg" placeholder="Type your message">
+    <input type="hidden" name="sender" value="user" />
+    <button type="submit" class="w-1/4 p-2 bg-blue-500 text-white rounded-r-lg">Send</button>
+</form>
+<div id="message-container" class="mt-4">
+    <ul id="messages" class="space-y-2">
+        {{ range .Messages }}
+        <li class="bg-gray-100 p-2 rounded-lg">{{ .Sender }}<span>: </span>{{ .Content }}</li>
+        {{ end }}
+    </ul>
+</div>
+{{ end }}

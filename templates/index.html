@@ -1,3 +1,4 @@
+{{ block "index" . }}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +7,14 @@
     <title>Go message</title>
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.0.2/dist/tailwind.min.css">
     <script src="https://unpkg.com/htmx.org@latest/dist/htmx.min.js"></script>
+    <script src="https://unpkg.com/htmx.org@latest/dist/ext/ws.js"></script>
 </head>
 <body>
     <h1 class="text-5xl font-bold text-center font-mono">Chats</h1>
+    <div class="flex justify-center items-center overflow-y-auto">
+        <div hx-ext="ws" ws-connect="/chat" class="w-1/2">
+           {{ template "chatroom" .Chatroom }} 
+        </div>
 </body>
 </html>
+{{ end }}
